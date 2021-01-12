@@ -26,11 +26,15 @@ class adminlogin{
         $adminUser = mysqli_real_escape_string($this->db->link,$adminUser);
         $adminPass = mysqli_real_escape_string($this->db->link,$adminPass);
         
+        
+        
         if(empty($adminUser) || empty($adminPass)){
             $login_msg = "Username or password must not be empty";
         }else{
-            $query = "select * from tbl_admin where admin_user='$adminUser' and admin_pass = '$adminPass' ";
+            $encrypt_pass = md5($adminPass);
+            $query = "select * from tbl_admin where admin_user='$adminUser' and admin_pass = '$encrypt_pass' ";
             $results = $this->db->select($query);
+            
             if($results != false){
                 $value = $results->fetch_assoc();
                 session::set("admin_login", true);
