@@ -22,11 +22,21 @@ class session
         }
     }
     
+    public static function checkSession()
+    {
+       self::init();
+       if(self::get("admin_login")==FALSE){
+           self::destroy();
+           header("Location:login.php");
+       }
+    }
+    
+    
     public static function checkLogin()
     {
         self::init();
-        if(self::get("admin_login")){
-            header("Location::login.php");
+        if(self::get("admin_login")==true){
+            header("Location:dashboard.php");
         }
     }
     
