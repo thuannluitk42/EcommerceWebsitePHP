@@ -23,13 +23,15 @@ $cat = new category();
 					    $i = 0 ;
 					   
 					    while ($result = $getCat->fetch_assoc()){
+// 					        var_dump($result['category_id']);
+// 					        DIE();
 					        $i++;
 					
 					?>
 						<tr class="odd gradeX">
 							<td><?php echo $i;?></td>
 							<td><?php echo $result['category_name'];?></td>
-							<td><a href="catedit.php?category_id=<?php $result['category_id']?>">Edit</a> || <a href="">Delete</a></td>
+							<td><a href="catedit.php?category_id=<?php echo $result['category_id']?>">Edit</a> || <a href="">Delete</a></td>
 						</tr>
 					<?php }}?>
 					</tbody>

@@ -46,6 +46,12 @@ class category
         $result = $this->db->select($query);
         return $result;
     }
+    
+    public function getCategoryById($id){
+        $query = "select * from tbl_category where category_id = '$id'";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }
 
 ?>
