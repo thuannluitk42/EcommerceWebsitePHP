@@ -22,8 +22,8 @@ class category
     {
         $catName = $this->fm->validation($catName);
         $catName = mysqli_real_escape_string($this->db->link, $catName);
-        $category_id= date('dmYHis');
-        
+        $category_id = date('dmYHis');
+
         if (empty($catName)) {
             $msg = "Category field must not empty";
             return $msg;
@@ -38,6 +38,13 @@ class category
                 return $msg;
             }
         }
+    }
+
+    public function getAllCategories()
+    {
+        $query = "select * from tbl_category order by category_id  desc";
+        $result = $this->db->select($query);
+        return $result;
     }
 }
 
