@@ -34,7 +34,6 @@ if (isset($_GET['catdel'])) {
 
         while ($result = $getCat->fetch_assoc()) {
             $i ++;
-
             ?>
 						<tr class="odd gradeX">
 						<td><?php echo $i;?></td>
