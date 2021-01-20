@@ -54,7 +54,7 @@ class category
         return $result;
     }
 
-    public function catUpdate($category_name, $id)
+    public function updateCategory($category_name, $id)
     {
         $category_name = $this->fm->validation($category_name);
         $category_name = mysqli_real_escape_string($this->db->link, $category_name);
@@ -73,6 +73,19 @@ class category
                 $msg = "<span class= 'error'>Category updated failed.<span>";
                 return $msg;
             }
+        }
+    }
+
+    public function deleteCategoryById($category_id)
+    {
+        $query = "delete from  tbl_category where category_id='$category_id'";
+        $delete_row = $this->db->delete($query);
+        if ($delete_row) {
+            $msg = "<span class= 'success'>Category deleted successfully.<span>";
+            return $msg;
+        } else {
+            $msg = "<span class= 'error'>Category deleted failed.<span>";
+            return $msg;
         }
     }
 }
