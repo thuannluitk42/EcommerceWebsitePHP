@@ -82,7 +82,7 @@ session::checkSession();
 		<div class="clear"></div>
 		<div class="grid_12">
 			<ul class="nav main">
-				<li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a>
+				<li class="ic-dashboard"><a href="dashboard.php"><span>Dashboard</span></a>
 				</li>
 				<li class="ic-form-style"><a href=""><span>User Profile</span></a></li>
 
