@@ -19,7 +19,7 @@ $cat = new Category();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $catName = $_POST['category_name'];
 
-    $insertCat = $cat->catInsert($catName);
+    $updateCat = $cat->catUpdate($catName,$id);
 }
 
 ?>
@@ -31,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<div class="block copyblock"> 
 
                <?php
-            if (isset($insertCat)) {
-                echo $insertCat;
+               if (isset($updateCat)) {
+                   echo $updateCat;
             }
             ?>
                            <?php

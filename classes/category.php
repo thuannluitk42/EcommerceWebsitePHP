@@ -46,11 +46,34 @@ class category
         $result = $this->db->select($query);
         return $result;
     }
-    
-    public function getCategoryById($id){
+
+    public function getCategoryById($id)
+    {
         $query = "select * from tbl_category where category_id = '$id'";
         $result = $this->db->select($query);
         return $result;
+    }
+
+    public function catUpdate($category_name, $id)
+    {
+        $category_name = $this->fm->validation($category_name);
+        $category_name = mysqli_real_escape_string($this->db->link, $category_name);
+        $category_id = mysqli_real_escape_string($this->db->link, $id);
+
+        if (empty($category_name)) {
+            $msg = "<span class= 'error'>Category field must not empty.<span>";
+            return $msg;
+        } else {
+            $query = "update tbl_category set category_name='$category_name' where category_id='$category_id'";
+            $update_row = $this->db->update($query);
+            if ($update_row) {
+                $msg = "<span class= 'success'>Category updated successfully.<span>";
+                return $msg;
+            } else {
+                $msg = "<span class= 'error'>Category updated failed.<span>";
+                return $msg;
+            }
+        }
     }
 }
 
