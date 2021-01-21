@@ -30,16 +30,17 @@ if (isset($_GET['branddel'])) {
 					<?php
 					$getBrand = $brand->getAllBrands();
 					if ($getBrand) {
-        $i = 0;
-
-        while ($result = $getBrand->fetch_assoc()) {
-            $i ++;
-            ?>
+                    $i = 0;
+            
+                    while ($result = $getBrand->fetch_assoc()) {
+                        $i ++;
+                        ?>
 						<tr class="odd gradeX">
 						<td><?php echo $i;?></td>
 						<td><?php echo $result['brand_name'];?></td>
 						<td><a
-							href="brandedit.php?brand_id =<?php echo $result['brand_id']?>">Edit</a>
+							href="brandedit.php?brand_id=<?php echo $result['brand_id']?>">Edit</a>
+							
 							|| <a onclick="return confirm('Are you sure to delete')"
 							href="?branddel=<?php echo $result['brand_id']?>">Delete</a></td>
 					</tr>
