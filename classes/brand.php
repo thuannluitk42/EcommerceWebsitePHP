@@ -15,7 +15,7 @@ class brand
     public function __construct()
     {
         $this->db = new Database();
-        $this->fm = new format();
+        $this->fm = new Format();
     }
 
     public function brandInsert($brand_name)
