@@ -48,19 +48,23 @@ $fm = new format();
 						<td><img src="<?php echo $result['image'];?>" height="40px"
 							width="60px"></td>
 						<td><?php
-                            if ($result['type'] == 0) {
-                                echo "Featured";
-                            } else {
-                                echo "General";
-                            }
+                        if ($result['type'] == 0) {
+                            echo "Featured";
+                        } else {
+                            echo "General";
+                        }
+                
+                        ?></td>
 
-                            ?></td>
-						<td><a href="">Edit</a> || <a href="">Delete</a></td>
+						<td><a
+							href="productedit.php?product_id=<?php echo $result['product_id']?>">Edit</a>
+							|| <a onclick="return confirm('Are you sure to delete')"
+							href="?productdel=<?php echo $result['product_id']?>">Delete</a></td>
 					</tr>
                 <?php
-    }
-}
-?>
+                    }
+                }
+                ?>
 			</tbody>
 			</table>
 
