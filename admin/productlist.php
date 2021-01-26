@@ -30,19 +30,19 @@ $fm = new format();
 				<tbody>
 			
 			<?php
-$getProduct = $pd->getAllProducts();
-if ($getProduct) {
-    $i = 0;
-    while ($result = $getProduct->fetch_assoc()) {
-        $i ++;
-        ?>
+            $getProduct = $pd->getAllProducts();
+            if ($getProduct) {
+                $i = 0;
+                while ($result = $getProduct->fetch_assoc()) {
+                    $i ++;
+                    ?>
 			
 			
 				<tr class="odd gradeX">
 						<td><?php echo $i;?></td>
 						<td><?php echo $fm->textShorten($result['product_name'],15);?></td>
-						<td><?php echo $result['category_id'];?></td>
-						<td><?php echo $result['brand_id'];?></td>
+						<td><?php echo $result['category_name'];?></td>
+						<td><?php echo $result['brand_name'];?></td>
 						<td><?php echo $fm->textShorten($result['body'],50);?></td>
 						<td><?php echo $result['price'];?></td>
 						<td><img src="<?php echo $result['image'];?>" height="40px"

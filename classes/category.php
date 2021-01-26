@@ -22,13 +22,13 @@ class category
     {
         $catName = $this->fm->validation($catName);
         $catName = mysqli_real_escape_string($this->db->link, $catName);
-        $category_id = date('dmYHis');
+//         $category_id = date('dmYHis');
 
         if (empty($catName)) {
             $msg = "Category field must not empty";
             return $msg;
         } else {
-            $query = "insert into tbl_category values ($category_id,'$catName')";
+            $query = "insert into tbl_category(category_name) values ('$catName')";
             $catInsert = $this->db->insert($query);
             if ($catInsert) {
                 $msg = "<span class= 'success'>Category insert successfully.<span>";
